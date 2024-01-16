@@ -41,7 +41,7 @@ const StylingExercise = () => {
 const styles = StyleSheet.create({
   text: {
     marginHorizontal: 5,
-    marginVertical: 10,
+    marginVertical: 20,
     fontWeight: 'bold',
     fontSize: 18,
   },

@@ -31,7 +31,7 @@ const ColorBox = ({ colorName, colorValue }) => {
 const styles = StyleSheet.create({
   block: {
     marginVertical: 5,
-    paddingVertical: 8,
+    paddingVertical: 20,
     marginHorizontal: 5,
     alignItems: 'center',
   },
