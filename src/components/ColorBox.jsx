@@ -11,7 +11,17 @@ const ColorBox = ({ colorName, colorValue }) => {
         styles.block,
       ]}
     >
-      <Text style={styles.textStyle}>
+      <Text
+        style={[
+          styles.textStyle,
+          {
+            color:
+              parseInt(colorValue.replace('#', ''), 16) > 0xffffff / 1.1
+                ? 'black'
+                : 'white',
+          },
+        ]}
+      >
         {colorName} {colorValue} {''}
       </Text>
     </View>
