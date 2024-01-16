@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ColorBox = ({ color }) => {
+const ColorBox = ({ colorName, colorValue }) => {
   return (
     <View
       style={[
         {
-          backgroundColor: color.value,
+          backgroundColor: colorValue,
         },
         styles.block,
       ]}
     >
       <Text style={styles.textStyle}>
-        {color.name} {color.value}{' '}
+        {colorName} {colorValue}{' '}
       </Text>
     </View>
   );

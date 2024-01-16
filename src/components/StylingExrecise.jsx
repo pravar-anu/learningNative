@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ColorBox from './ColorBox';
 
 const colors = [
@@ -25,9 +25,16 @@ const StylingExercise = () => {
   return (
     <View>
       <Text style={styles.text}>Here are some boxes of different colours</Text>
-      {colors.map((color, index) => (
-        <ColorBox key={index} color={color} />
-      ))}
+      <FlatList
+        data={colors}
+        keyExtractor={item => item.value}
+        renderItem={({ item }) => (
+          <ColorBox colorName={item.name} colorValue={item.value} />
+        )}
+      />
+      {/* {colors.map((color, index) => (
+        <ColorBox key={index} colorName={color.name} colorValue={color.value} />
+      ))} */}
     </View>
   );
 };
