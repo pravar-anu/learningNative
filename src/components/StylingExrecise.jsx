@@ -2,39 +2,36 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ColorBox from './ColorBox';
 
-const colors = [
-  {
-    name: 'Cyan',
-    value: '#2aa198',
-  },
-  {
-    name: 'Blue',
-    value: '#268bd2',
-  },
-  {
-    name: 'Magneta',
-    value: '#d33682',
-  },
-  {
-    name: 'Orange',
-    value: '#cb4b16',
-  },
+const COLORS = [
+  { colorName: 'Base03', hexCode: '#002b36' },
+  { colorName: 'Base02', hexCode: '#073642' },
+  { colorName: 'Base01', hexCode: '#586e75' },
+  { colorName: 'Base00', hexCode: '#657b83' },
+  { colorName: 'Base0', hexCode: '#839496' },
+  { colorName: 'Base1', hexCode: '#93a1a1' },
+  { colorName: 'Base2', hexCode: '#eee8d5' },
+  { colorName: 'Base3', hexCode: '#fdf6e3' },
+  { colorName: 'Yellow', hexCode: '#b58900' },
+  { colorName: 'Orange', hexCode: '#cb4b16' },
+  { colorName: 'Red', hexCode: '#dc322f' },
+  { colorName: 'Magenta', hexCode: '#d33682' },
+  { colorName: 'Violet', hexCode: '#6c71c4' },
+  { colorName: 'Blue', hexCode: '#268bd2' },
+  { colorName: 'Cyan', hexCode: '#2aa198' },
+  { colorName: 'Green', hexCode: '#859900' },
 ];
 
 const StylingExercise = () => {
   return (
     <View>
-      <Text style={styles.text}>Here are some boxes of different colours</Text>
+      <Text style={styles.text}>Solarized Colours : </Text>
       <FlatList
-        data={colors}
-        keyExtractor={item => item.value}
+        data={COLORS}
+        keyExtractor={item => item.hexCode}
         renderItem={({ item }) => (
-          <ColorBox colorName={item.name} colorValue={item.value} />
+          <ColorBox colorName={item.colorName} colorValue={item.hexCode} />
         )}
       />
-      {/* {colors.map((color, index) => (
-        <ColorBox key={index} colorName={color.name} colorValue={color.value} />
-      ))} */}
     </View>
   );
 };

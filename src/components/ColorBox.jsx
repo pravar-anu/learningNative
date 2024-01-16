@@ -12,7 +12,7 @@ const ColorBox = ({ colorName, colorValue }) => {
       ]}
     >
       <Text style={styles.textStyle}>
-        {colorName} {colorValue}{' '}
+        {colorName} {colorValue} {''}
       </Text>
     </View>
   );
