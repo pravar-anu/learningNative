@@ -24,13 +24,15 @@ const COLORS = [
 const StylingExercise = () => {
   return (
     <View>
-      <Text style={styles.text}>Solarized Colours : </Text>
       <FlatList
         data={COLORS}
         keyExtractor={item => item.hexCode}
         renderItem={({ item }) => (
           <ColorBox colorName={item.colorName} colorValue={item.hexCode} />
         )}
+        ListHeaderComponent={
+          <Text style={styles.text}>Solarized Colours : </Text>
+        }
       />
     </View>
   );
