@@ -1,5 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, FlatList, RefreshControl } from 'react-native';
+import {
+  View,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import PalettePreview from '../components/PalettePreview';
 
 const Home = ({ navigation }) => {
@@ -24,6 +30,7 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View>
+        <Text style={[{}]}>Add a color scheme</Text>
         <FlatList
           onRefresh={() => {
             setIsRefreshing(true);
@@ -41,10 +48,34 @@ const Home = ({ navigation }) => {
               handlePress={() => navigation.navigate('ColorPalette', item)}
             />
           )}
+          ListHeaderComponent={
+            <TouchableOpacity
+              onPress={() => navigation.navigate('NewPaletteModal')}
+            >
+              <Text
+                style={[
+                  styles.modal,
+                  { color: '#19735a', backgroundColor: 'blue' },
+                ]}
+              >
+                Add a color scheme
+              </Text>
+            </TouchableOpacity>
+          }
         />
       </View>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  modal: {
+    fontSize: 24,
+    color: '#19735a',
+    fontWeight: 'bold',
+    marginHorizontal: 5,
+    marginVertical: 5,
+  },
+});
 
 export default Home;
