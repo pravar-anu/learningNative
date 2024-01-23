@@ -30,7 +30,6 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View>
-        <Text style={[{}]}>Add a color scheme</Text>
         <FlatList
           onRefresh={() => {
             setIsRefreshing(true);
@@ -52,14 +51,7 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('NewPaletteModal')}
             >
-              <Text
-                style={[
-                  styles.modal,
-                  { color: '#19735a', backgroundColor: 'blue' },
-                ]}
-              >
-                Add a color scheme
-              </Text>
+              <Text style={styles.modal}>Add a color scheme</Text>
             </TouchableOpacity>
           }
         />
