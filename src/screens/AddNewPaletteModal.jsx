@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from 'react-native';
 
 const COLORS = [
@@ -170,10 +171,10 @@ const AddNewPaletteModal = ({ navigation }) => {
           newPalette: { paletteName, colors: selectedPalette },
         });
       } else {
-        console.warn('Please select at least three colors');
+        Alert.alert('Oops!', 'Please select at least three colors');
       }
     } else {
-      console.warn('Please provide a name for your palette');
+      Alert.alert('Oops!', 'Please provide a name for your palette');
     }
   }, [selectedPalette, paletteName]);
 
