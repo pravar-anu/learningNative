@@ -163,15 +163,19 @@ const AddNewPaletteModal = ({ navigation }) => {
   const [selectedPalette, setSelectedPalette] = useState([]);
   const [paletteName, setPaletteName] = useState('');
 
-  const handleSubmit = () => {
-    if (selectedPalette.length > 3 && paletteName.trim() !== '') {
-      navigation.navigate('Home', {
-        newPalette: { paletteName, colors: selectedPalette },
-      });
+  const handleSubmit = useCallback(() => {
+    if (paletteName.trim() !== '') {
+      if (selectedPalette.length > 2) {
+        navigation.navigate('Home', {
+          newPalette: { paletteName, colors: selectedPalette },
+        });
+      } else {
+        console.warn('Please select at least three colors');
+      }
     } else {
-      console.warn('Please select at least three colors');
+      console.warn('Please provide a name for your palette');
     }
-  };
+  }, [selectedPalette, paletteName]);
 
   return (
     <View style={{ padding: 10, flex: 1, justifyContent: 'center' }}>
