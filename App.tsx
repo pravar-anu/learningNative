@@ -33,6 +33,7 @@ const App = () => {
         <RootStack.Screen
           name="NewPaletteModal"
           component={AddNewPaletteModal}
+          options={{ title: 'New Color Scheme' }}
         />
       </RootStack.Navigator>
     </NavigationContainer>

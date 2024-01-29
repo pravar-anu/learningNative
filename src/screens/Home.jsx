@@ -8,9 +8,17 @@ import {
 } from 'react-native';
 import PalettePreview from '../components/PalettePreview';
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, route }) => {
   const [colorPalette, setColorPalette] = useState([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const newPalette = route.params ? route.params.newPalette : null;
+
+  useEffect(() => {
+    if (newPalette) {
+      setColorPalette(prev => [...prev, newPalette]);
+    }
+  }, [newPalette]);
+
   const getColorData = useCallback(async () => {
     try {
       const response = await fetch(

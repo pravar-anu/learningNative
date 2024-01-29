@@ -1,30 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 const ColorBox = ({ colorName, colorValue }) => {
   return (
-    <View
-      style={[
-        {
-          backgroundColor: colorValue,
-        },
-        styles.block,
-      ]}
+    <TouchableOpacity
+      onPress={() => {
+        Clipboard.setString(colorValue);
+      }}
     >
-      <Text
+      <View
         style={[
-          styles.textStyle,
           {
-            color:
-              parseInt(colorValue.replace('#', ''), 16) > 0xffffff / 1.1
-                ? 'black'
-                : 'white',
+            backgroundColor: colorValue,
           },
+          styles.block,
         ]}
       >
-        {colorName} {colorValue} {''}
-      </Text>
-    </View>
+        <Text
+          style={[
+            styles.textStyle,
+            {
+              color:
+                parseInt(colorValue.replace('#', ''), 16) > 0xffffff / 1.1
+                  ? 'black'
+                  : 'white',
+            },
+          ]}
+        >
+          {colorName} {colorValue} {''}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
